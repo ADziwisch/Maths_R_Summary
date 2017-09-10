@@ -140,6 +140,8 @@ $(document).ready(function () {
 <li><a href="#arithmetic-with-matrices">1.2.3 Arithmetic with matrices</a></li>
 <li><a href="#transpose-matrices">1.2.4 Transpose matrices</a></li>
 <li><a href="#inverse-of-matrix">1.2.5 Inverse of matrix</a></li>
+<li><a href="#rank-of-a-matrix">1.2.6 Rank of a matrix</a></li>
+<li><a href="#eigenvalues">1.2.7 Eigenvalues</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -182,6 +184,7 @@ typeof(TRUE)</code></pre>
 var2 &lt;- 13
 var1 + var2</code></pre>
 <pre><code>## [1] 18</code></pre>
+<p><br><br></p>
 </div>
 </div>
 <div id="vectors-matrices" class="section level2">
@@ -195,6 +198,7 @@ v1
 length(v1)</code></pre>
 <pre><code>## [1] 1 2 3 4 5
 ## [1] 5</code></pre>
+<p><br></p>
 </div>
 <div id="getting-the-components-of-a-vector-slicing" class="section level4">
 <h4>1.1.2 Getting the components of a vector (slicing)</h4>
@@ -202,6 +206,7 @@ length(v1)</code></pre>
 v1[1:3]</code></pre>
 <pre><code>## [1] 1
 ## [1] 1 2 3</code></pre>
+<p><br></p>
 </div>
 <div id="auto-population-of-a-vector" class="section level4">
 <h4>1.1.3 Auto population of a vector</h4>
@@ -215,6 +220,7 @@ c(seq(from = 1, to = 7, length = 5))</code></pre>
 ## [1] 5 6 7 8 9
 ## [1] 1 3 5 7
 ## [1] 1.0 2.5 4.0 5.5 7.0</code></pre>
+<p><br></p>
 </div>
 <div id="arithmetic-with-vectors" class="section level4">
 <h4>1.1.4 Arithmetic with vectors</h4>
@@ -343,6 +349,60 @@ m3</code></pre>
 <p>Otherwise it is said to be noninvertible or singular:</p>
 <pre class="r"><code>solve(matrix(c(1:9), nrow = 3))</code></pre>
 <pre><code>## Error in solve.default(matrix(c(1:9), nrow = 3)): Lapackroutine dgesv: System ist genau singulär: U[3,3] = 0</code></pre>
+<p><br></p>
+</div>
+<div id="rank-of-a-matrix" class="section level4">
+<h4>1.2.6 Rank of a matrix</h4>
+<pre class="r"><code>m4 &lt;- matrix(c(1,2,3,2,4,6,10,20,30), ncol = 3, byrow = FALSE)
+m4</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2   10
+## [2,]    2    4   20
+## [3,]    3    6   30</code></pre>
+<pre class="r"><code>qr(m4)$rank</code></pre>
+<pre><code>## [1] 1</code></pre>
+<p>The rank of the matrix is 1, because <span class="math inline">\(Col2 = 2*Col1\)</span> and <span class="math inline">\(Col3 = 10*Col1\)</span>. This attribute can be used to reduce the size of matrices and data. <br></p>
+</div>
+<div id="eigenvalues" class="section level4">
+<h4>1.2.7 Eigenvalues</h4>
+<p>We use the example of a <span class="math inline">\(3 \times 3\)</span> matrix. This could be considered as the variance-covariance matrix of three variables, but the main thing is that the matrix is <strong>square</strong> and <strong>symmetric</strong>, which guarrantees that the eigenvalues <span class="math inline">\(\lambda_{i}\)</span> are real numbers.</p>
+<pre class="r"><code>m5 &lt;- matrix(c(13, -4, 2, -4, 11, -2, 2, -2, 8), ncol = 3, byrow = TRUE)
+m5</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   13   -4    2
+## [2,]   -4   11   -2
+## [3,]    2   -2    8</code></pre>
+<pre class="r"><code>eigen(m5)</code></pre>
+<pre><code>## eigen() decomposition
+## $values
+## [1] 17  8  7
+## 
+## $vectors
+##            [,1]       [,2]      [,3]
+## [1,]  0.7453560  0.6666667 0.0000000
+## [2,] -0.5962848  0.6666667 0.4472136
+## [3,]  0.2981424 -0.3333333 0.8944272</code></pre>
+As shown above, this returns a namend list, containing the eigenvalues and eigenvectors. One may test the result by calculating the required equation for this eigenvalues:<br>
+<center>
+<span class="math inline">\((A- \lambda I_{n})x=0\)</span>
+</center>
+<br> which leads to:
+<center>
+<span class="math inline">\(det(A- \lambda I_{n})=0\)</span>
+</center>
+<p><br></p>
+<pre class="r"><code>m_test1 = m5 - eigen(m5)$values[1] * diag(3)
+m_test1</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   -4   -4    2
+## [2,]   -4   -6   -2
+## [3,]    2   -2   -9</code></pre>
+<pre class="r"><code>round(det(m_test1), digits = 2)</code></pre>
+<pre><code>## [1] 0</code></pre>
+<p>Which should also be true for the second eigenvalue:</p>
+<pre class="r"><code>m_test2 = m5 - eigen(m5)$values[2] * diag(3)
+round(det(m_test2), digits = 2)</code></pre>
+<pre><code>## [1] 0</code></pre>
 </div>
 </div>
 </div>

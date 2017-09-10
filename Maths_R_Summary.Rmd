@@ -42,6 +42,7 @@ var1 <- 5
 var2 <- 13
 var1 + var2
 ```
+<br><br>  
 
 ## 1. Vectors & Matrices
 
@@ -53,12 +54,14 @@ v1 <- c(1, 2, 3, 4, 5)
 v1
 length(v1)
 ```
+<br>  
 
 #### 1.1.2 Getting the components of a vector (slicing)
 ```{r results='hold'}
 v1[1]
 v1[1:3]
 ```
+<br>  
 
 #### 1.1.3 Auto population of a vector
 ```{r results='hold'}
@@ -68,6 +71,7 @@ c(5:9)
 c(seq(from = 1, to = 7, by = 2))
 c(seq(from = 1, to = 7, length = 5))
 ```
+<br>  
 
 #### 1.1.4 Arithmetic with vectors
 ```{r results='hold'}
@@ -151,4 +155,38 @@ Otherwise it is said to be noninvertible or singular:
 ```{r error=TRUE}
 solve(matrix(c(1:9), nrow = 3))
 ```
+<br>  
 
+#### 1.2.6 Rank of a matrix
+```{r}
+m4 <- matrix(c(1,2,3,2,4,6,10,20,30), ncol = 3, byrow = FALSE)
+m4
+qr(m4)$rank
+```
+The rank of the matrix is 1, because $Col2 = 2*Col1$ and $Col3 = 10*Col1$. This attribute can be used to reduce the size of matrices and data.
+<br>  
+
+#### 1.2.7 Eigenvalues
+We use the example of a $3 \times 3$ matrix. This could be considered as the variance-covariance matrix of three variables, but the main thing is that the matrix is <strong>square</strong> and <strong>symmetric</strong>, which guarrantees that the eigenvalues $\lambda_{i}$ are real numbers. 
+```{r}
+m5 <- matrix(c(13, -4, 2, -4, 11, -2, 2, -2, 8), ncol = 3, byrow = TRUE)
+m5
+```
+```{r}
+eigen(m5)
+```
+As shown above, this returns a namend list, containing the eigenvalues and eigenvectors.
+One may test the result by calculating the required equation for this eigenvalues:<br>
+<center>$(A- \lambda I_{n})x=0$</center><br>
+which leads to:
+<center>$det(A- \lambda I_{n})=0$</center><br>  
+```{r}
+m_test1 = m5 - eigen(m5)$values[1] * diag(3)
+m_test1
+round(det(m_test1), digits = 2)
+```
+Which should also be true for the second eigenvalue:
+```{r}
+m_test2 = m5 - eigen(m5)$values[2] * diag(3)
+round(det(m_test2), digits = 2)
+```
