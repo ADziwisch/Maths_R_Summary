@@ -1,0 +1,64 @@
+---
+title: "Summary - Maths & Statistics"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 0. Basics
+
+### 0.1 Managing Packages
+```{r}
+# install.packages("ggplot2")
+library(ggplot2)
+```
+
+### 0.2 Data Types
+```{r results='hold'}
+typeof(5)
+typeof("text")
+typeof(TRUE)
+```
+
+### 0.3 Arithmetic with R
+```{r results='hold'}
+5 + 5 # An addition
+5 - 4 # A subtraction
+3 * 5 # A multiplication
+9 / 3 # A division
+2 ^ 5 # Exponentiation
+7 %% 3 # Modulo
+```
+
+### 0.4 Variable Assignment
+```{r}
+var1 <- 5
+var2 <- 13
+var1 + var2
+```
+
+## 1. Vectors & Matrices
+
+### 1.1 Creating a vector
+```{r}
+vec1 <- c(1, 2, 3, 4, 5)
+vec1
+length(vec1)
+```
+
+### 1.2 Getting the components of a vector (slicing)
+```{r}
+vec1[1]
+vec1[1:3]
+```
+
+
+
+
+
