@@ -45,20 +45,82 @@ var1 + var2
 
 ## 1. Vectors & Matrices
 
-### 1.1 Creating a vector
-```{r}
+### 1.1 Vectors
+
+#### 1.1.1 Creating a vector
+```{r results='hold'}
 vec1 <- c(1, 2, 3, 4, 5)
 vec1
 length(vec1)
 ```
 
-### 1.2 Getting the components of a vector (slicing)
-```{r}
+#### 1.1.2 Getting the components of a vector (slicing)
+```{r results='hold'}
 vec1[1]
 vec1[1:3]
 ```
 
+#### 1.1.3 Auto population of a vector
+```{r results='hold'}
+c(rep(0, times = 5))
+c(rep(c(1, 2), times = 3))
+c(5:9)
+c(seq(from = 1, to = 7, by = 2))
+c(seq(from = 1, to = 7, length = 5))
+```
 
+#### 1.1.4 Arithmetic with vectors
+```{r results='hold'}
+a <- 1:5
+b <- 3:7
+a+b
+a-b
+a*b
+a/b
+a^(b-a)
+```
+And the scalar
+```{r}
+a%*%b
+```
 
+### 1.2 Matrices
 
+#### 1.2.1 Creating a matrix
+```{r}
+mat1 <- matrix(c(1:6), ncol = 3, byrow = TRUE)
+mat1
+```
+```{r}
+diag(c(1:4))
+diag(3)
+```
 
+#### 1.2.2 Length, Dimensions and Slicing
+```{r results='hold'}
+length(mat1)
+dim(mat1)
+```
+```{r results='hold'}
+mat1[2,3]
+mat1[,2]
+```
+
+#### 1.2.3 Arithmetic with matrices
+```{r results='hold'}
+mat2 <- matrix(c(1:6), ncol = 2, byrow = TRUE)
+mat1
+mat2
+```
+```{r error=TRUE}
+3*mat1
+mat1%*%mat2
+mat2%*%mat1
+mat1*mat2
+```
+
+#### 1.2.4 Transpose matrices
+```{r}
+t(mat1)
+mat1%*%t(mat1)
+```
