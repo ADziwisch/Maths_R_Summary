@@ -3,7 +3,7 @@ title: "Summary - Maths & Statistics"
 output:
   html_document:
     toc: true
-    toc_depth: 3
+    toc_depth: 4
   pdf_document: default
 ---
 
@@ -49,15 +49,15 @@ var1 + var2
 
 #### 1.1.1 Creating a vector
 ```{r results='hold'}
-vec1 <- c(1, 2, 3, 4, 5)
-vec1
-length(vec1)
+v1 <- c(1, 2, 3, 4, 5)
+v1
+length(v1)
 ```
 
 #### 1.1.2 Getting the components of a vector (slicing)
 ```{r results='hold'}
-vec1[1]
-vec1[1:3]
+v1[1]
+v1[1:3]
 ```
 
 #### 1.1.3 Auto population of a vector
@@ -83,44 +83,72 @@ And the scalar
 ```{r}
 a%*%b
 ```
+<br><br>  
 
 ### 1.2 Matrices
 
 #### 1.2.1 Creating a matrix
 ```{r}
-mat1 <- matrix(c(1:6), ncol = 3, byrow = TRUE)
-mat1
+m1 <- matrix(c(1:6), ncol = 3, byrow = TRUE)
+m1
 ```
 ```{r}
 diag(c(1:4))
 diag(3)
 ```
+<br>  
 
 #### 1.2.2 Length, Dimensions and Slicing
 ```{r results='hold'}
-length(mat1)
-dim(mat1)
+length(m1)
+dim(m1)
 ```
 ```{r results='hold'}
-mat1[2,3]
-mat1[,2]
+m1[2,3]
+m1[,2]
 ```
+<br>  
 
 #### 1.2.3 Arithmetic with matrices
 ```{r results='hold'}
-mat2 <- matrix(c(1:6), ncol = 2, byrow = TRUE)
-mat1
-mat2
+m2 <- matrix(c(1:6), ncol = 2, byrow = TRUE)
+m1
+m2
 ```
 ```{r error=TRUE}
-3*mat1
-mat1%*%mat2
-mat2%*%mat1
-mat1*mat2
+3*m1 # scalar multiplication
+m1%*%m2
+m2%*%m1
+m1*m2
 ```
+<br>  
 
 #### 1.2.4 Transpose matrices
+Let ${\bf M1}=[a_{ij}]$ then ${\bf M1'}=[a_{ji}]$ 
 ```{r}
-t(mat1)
-mat1%*%t(mat1)
+m1
+t(m1)
 ```
+$({\bf M1'})'={\bf M1}$
+```{r}
+t(t(m1))
+```
+${\bf M1}{\bf M1'}$ always yields a symmetric matrix ${\bf Q}$
+```{r}
+m1%*%t(m1)
+```
+<br>  
+
+#### 1.2.5 Inverse of matrix
+An $n \times n$ matrix ${\bf M}$ has an inverse, denoted ${\bf M^{-1}}$, provided that ${\bf M}{\bf M^{-1}}={\bf I_{n}}$
+```{r}
+m3 <- matrix(c(2, 5, 1, 3), nrow = 2, byrow = TRUE)
+m3
+solve(m3)
+m3%*%solve(m3)
+```
+Otherwise it is said to be noninvertible or singular:
+```{r error=TRUE}
+solve(matrix(c(1:9), nrow = 3))
+```
+
