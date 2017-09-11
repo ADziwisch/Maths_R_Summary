@@ -13,6 +13,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
 ```
 
 \newpage
@@ -247,3 +248,62 @@ solve(a,b)
 ```
 
 ## Calculus
+
+### Functions
+Constant function: $f(x)=a+b$
+Linear function: $f(x)=ax+b$
+Quadratic function: $f(x)=ax^{2}+b$ ...
+In R these can be written as follows:
+```{r}
+x = 1:10
+f_c = 3 + 1
+f_l = 3*x + 1
+f_q = 3*(x**2) + 1
+```
+One may plot the different functions:
+```{r}
+data <- data.frame(x = x, f_c = f_c,
+                   f_l = f_l, f_q = f_q)
+ggplot(data, aes(x)) +
+  geom_line(aes(y = f_c), color = "#fdcc8a") +
+  geom_line(aes(y = f_l), color = "#fc8d59") +
+  geom_line(aes(y = f_q), color = "#d7301f") +
+  labs(y = "y(x)") +
+  theme_classic()
+```
+
+### Derivatives
+
+#### First and Second Derivative
+
++ The first derivative $f'(x)$ describes the rate of change / slope of the tangent at $x$.
++ The second derivative $f''(x)$ describes the change in the rate of change / curvature of the function near $x$.
+Lets see what the first and second derivative of our quadratic equation $f(x)=3x^{2}+1$ are:
+```{r}
+D(expression(3*(x**2) + 1), "x")
+D(D(expression(3*(x**2) + 1), "x"), "x")
+```
+The function <code>D</code> only displays the derivative as plain text. To construct an actual function in R one has to use the function <code>deriv</code>
+```{r}
+deriv_f <- deriv(expression(3*(x**2) + 1), "x", function.arg = TRUE, hessian = TRUE)
+deriv_f
+```
+The first derivative can be found under the argument <code>.grad</code> and the second derivative under the argument <code>.hessian</code>. They can be accessed as follows:
+```{r}
+x <- seq(from = 0, to = 4*pi, length = 1000)
+cos <- cos(x)
+
+deriv_cos = deriv(expression(cos(x)), "x", function.arg = TRUE, hessian = TRUE)
+
+first_deriv <- as.numeric(attributes(deriv_cos(x))$gradient)
+second_deriv <- as.numeric(attributes(deriv_cos(x))$hessian)
+
+data <- data.frame(x_val = x, cos_val = cos, first_val = first_deriv, second_val = second_deriv)
+
+ggplot(data = data, aes(x = x_val)) +
+  geom_line(aes(y = cos_val), color = "#fdcc8a") +
+  geom_line(aes(y = first_val), color = "#fc8d59") +
+  geom_line(aes(y = second_val), color = "#d7301f")
+```
+
+
