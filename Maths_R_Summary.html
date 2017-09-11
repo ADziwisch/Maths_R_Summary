@@ -121,41 +121,70 @@ $(document).ready(function () {
 
 <div id="TOC">
 <ul>
-<li><a href="#basics">0. Basics</a><ul>
-<li><a href="#managing-packages">0.1 Managing Packages</a></li>
-<li><a href="#data-types">0.2 Data Types</a></li>
-<li><a href="#arithmetic-with-r">0.3 Arithmetic with R</a></li>
-<li><a href="#variable-assignment">0.4 Variable Assignment</a></li>
+<li><a href="#r-skills"><span class="toc-section-number">1</span> R Skills</a><ul>
+<li><a href="#basics"><span class="toc-section-number">1.1</span> Basics</a><ul>
+<li><a href="#managing-packages"><span class="toc-section-number">1.1.1</span> Managing Packages</a></li>
+<li><a href="#the-working-directory"><span class="toc-section-number">1.1.2</span> The Working Directory</a></li>
+<li><a href="#data-types"><span class="toc-section-number">1.1.3</span> Data Types</a></li>
+<li><a href="#arithmetic-with-r"><span class="toc-section-number">1.1.4</span> Arithmetic with R</a></li>
+<li><a href="#object-assignment"><span class="toc-section-number">1.1.5</span> Object Assignment</a></li>
 </ul></li>
-<li><a href="#vectors-matrices">1. Vectors &amp; Matrices</a><ul>
-<li><a href="#vectors">1.1 Vectors</a><ul>
-<li><a href="#creating-a-vector">1.1.1 Creating a vector</a></li>
-<li><a href="#getting-the-components-of-a-vector-slicing">1.1.2 Getting the components of a vector (slicing)</a></li>
-<li><a href="#auto-population-of-a-vector">1.1.3 Auto population of a vector</a></li>
-<li><a href="#arithmetic-with-vectors">1.1.4 Arithmetic with vectors</a></li>
+<li><a href="#loops"><span class="toc-section-number">1.2</span> Loops</a></li>
+<li><a href="#declaring-functions"><span class="toc-section-number">1.3</span> Declaring Functions</a></li>
+<li><a href="#lists"><span class="toc-section-number">1.4</span> Lists</a><ul>
+<li><a href="#creating-a-list"><span class="toc-section-number">1.4.1</span> Creating a List</a></li>
+<li><a href="#getting-data-from-a-list"><span class="toc-section-number">1.4.2</span> Getting data from a List</a></li>
+<li><a href="#appeding-to-a-list"><span class="toc-section-number">1.4.3</span> Appeding to a List</a></li>
+<li><a href="#subsetting-a-list"><span class="toc-section-number">1.4.4</span> Subsetting a List</a></li>
+<li><a href="#lapply-sapply-and-vapply"><span class="toc-section-number">1.4.5</span> lapply, sapply and vapply</a></li>
 </ul></li>
-<li><a href="#matrices">1.2 Matrices</a><ul>
-<li><a href="#creating-a-matrix">1.2.1 Creating a matrix</a></li>
-<li><a href="#length-dimensions-and-slicing">1.2.2 Length, Dimensions and Slicing</a></li>
-<li><a href="#arithmetic-with-matrices">1.2.3 Arithmetic with matrices</a></li>
-<li><a href="#transpose-matrices">1.2.4 Transpose matrices</a></li>
-<li><a href="#inverse-of-matrix">1.2.5 Inverse of matrix</a></li>
-<li><a href="#rank-of-a-matrix">1.2.6 Rank of a matrix</a></li>
-<li><a href="#eigenvalues">1.2.7 Eigenvalues</a></li>
+<li><a href="#data-frames"><span class="toc-section-number">1.5</span> Data Frames</a></li>
+<li><a href="#importing-data"><span class="toc-section-number">1.6</span> Importing Data</a></li>
+<li><a href="#ggplot2"><span class="toc-section-number">1.7</span> ggplot2</a></li>
+<li><a href="#regular-expressions"><span class="toc-section-number">1.8</span> Regular Expressions</a></li>
+<li><a href="#handeling-dates"><span class="toc-section-number">1.9</span> Handeling Dates</a></li>
+</ul></li>
+<li><a href="#mathematics-and-statistics"><span class="toc-section-number">2</span> Mathematics and Statistics</a><ul>
+<li><a href="#algebra"><span class="toc-section-number">2.1</span> Algebra</a><ul>
+<li><a href="#vectors"><span class="toc-section-number">2.1.1</span> Vectors</a><ul>
+<li><a href="#creating-a-vector"><span class="toc-section-number">2.1.1.1</span> Creating a vector</a></li>
+<li><a href="#auto-population-of-a-vector"><span class="toc-section-number">2.1.1.2</span> Auto population of a vector</a></li>
+<li><a href="#arithmetic-with-vectors"><span class="toc-section-number">2.1.1.3</span> Arithmetic with vectors</a></li>
+</ul></li>
+<li><a href="#matrices"><span class="toc-section-number">2.1.2</span> Matrices</a><ul>
+<li><a href="#creating-a-matrix"><span class="toc-section-number">2.1.2.1</span> Creating a matrix</a></li>
+<li><a href="#length-dimensions-and-slicing"><span class="toc-section-number">2.1.2.2</span> Length, Dimensions and Slicing</a></li>
+<li><a href="#arithmetic-with-matrices"><span class="toc-section-number">2.1.2.3</span> Arithmetic with matrices</a></li>
+<li><a href="#transpose-matrices"><span class="toc-section-number">2.1.2.4</span> Transpose matrices</a></li>
+<li><a href="#inverse-of-matrix"><span class="toc-section-number">2.1.2.5</span> Inverse of matrix</a></li>
+<li><a href="#rank-of-a-matrix"><span class="toc-section-number">2.1.2.6</span> Rank of a matrix</a></li>
+<li><a href="#eigenvalues"><span class="toc-section-number">2.1.2.7</span> Eigenvalues</a></li>
+</ul></li>
+<li><a href="#linear-algebra"><span class="toc-section-number">2.1.3</span> Linear Algebra</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </div>
 
+
+<div id="r-skills" class="section level1">
+<h1><span class="header-section-number">1</span> R Skills</h1>
 <div id="basics" class="section level2">
-<h2>0. Basics</h2>
+<h2><span class="header-section-number">1.1</span> Basics</h2>
 <div id="managing-packages" class="section level3">
-<h3>0.1 Managing Packages</h3>
-<pre class="r"><code># install.packages(&quot;ggplot2&quot;)
-library(ggplot2)</code></pre>
+<h3><span class="header-section-number">1.1.1</span> Managing Packages</h3>
+<p>If a package is not yet installed in the current project on may call the function <code>install.package(“PackageName”)</code>. Afterwards the package needs to be included in the current document:</p>
+<pre class="r"><code>library(ggplot2)</code></pre>
+</div>
+<div id="the-working-directory" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> The Working Directory</h3>
+<p>The working directory is normaly set to the location of the project. It can be called by:</p>
+<pre class="r"><code>getwd()</code></pre>
+<p>If required, the working directory can be changed to another path:</p>
+<pre class="r"><code>setwd(&quot;/Users/folder1/folder11/R_Stuff&quot;)</code></pre>
 </div>
 <div id="data-types" class="section level3">
-<h3>0.2 Data Types</h3>
+<h3><span class="header-section-number">1.1.3</span> Data Types</h3>
 <pre class="r"><code>typeof(5)
 typeof(&quot;text&quot;)
 typeof(TRUE)</code></pre>
@@ -164,7 +193,7 @@ typeof(TRUE)</code></pre>
 ## [1] &quot;logical&quot;</code></pre>
 </div>
 <div id="arithmetic-with-r" class="section level3">
-<h3>0.3 Arithmetic with R</h3>
+<h3><span class="header-section-number">1.1.4</span> Arithmetic with R</h3>
 <pre class="r"><code>5 + 5 # An addition
 5 - 4 # A subtraction
 3 * 5 # A multiplication
@@ -178,38 +207,72 @@ typeof(TRUE)</code></pre>
 ## [1] 32
 ## [1] 1</code></pre>
 </div>
-<div id="variable-assignment" class="section level3">
-<h3>0.4 Variable Assignment</h3>
-<pre class="r"><code>var1 &lt;- 5
-var2 &lt;- 13
-var1 + var2</code></pre>
+<div id="object-assignment" class="section level3">
+<h3><span class="header-section-number">1.1.5</span> Object Assignment</h3>
+<pre class="r"><code>ob1 &lt;- 5
+ob2 &lt;- 13
+ob1 + ob2</code></pre>
 <pre><code>## [1] 18</code></pre>
+</div>
+</div>
+<div id="loops" class="section level2">
+<h2><span class="header-section-number">1.2</span> Loops</h2>
+</div>
+<div id="declaring-functions" class="section level2">
+<h2><span class="header-section-number">1.3</span> Declaring Functions</h2>
+</div>
+<div id="lists" class="section level2">
+<h2><span class="header-section-number">1.4</span> Lists</h2>
+<div id="creating-a-list" class="section level3">
+<h3><span class="header-section-number">1.4.1</span> Creating a List</h3>
+</div>
+<div id="getting-data-from-a-list" class="section level3">
+<h3><span class="header-section-number">1.4.2</span> Getting data from a List</h3>
+</div>
+<div id="appeding-to-a-list" class="section level3">
+<h3><span class="header-section-number">1.4.3</span> Appeding to a List</h3>
+</div>
+<div id="subsetting-a-list" class="section level3">
+<h3><span class="header-section-number">1.4.4</span> Subsetting a List</h3>
+</div>
+<div id="lapply-sapply-and-vapply" class="section level3">
+<h3><span class="header-section-number">1.4.5</span> lapply, sapply and vapply</h3>
+</div>
+</div>
+<div id="data-frames" class="section level2">
+<h2><span class="header-section-number">1.5</span> Data Frames</h2>
+</div>
+<div id="importing-data" class="section level2">
+<h2><span class="header-section-number">1.6</span> Importing Data</h2>
+</div>
+<div id="ggplot2" class="section level2">
+<h2><span class="header-section-number">1.7</span> ggplot2</h2>
+</div>
+<div id="regular-expressions" class="section level2">
+<h2><span class="header-section-number">1.8</span> Regular Expressions</h2>
+</div>
+<div id="handeling-dates" class="section level2">
+<h2><span class="header-section-number">1.9</span> Handeling Dates</h2>
 <p><br><br></p>
+
 </div>
 </div>
-<div id="vectors-matrices" class="section level2">
-<h2>1. Vectors &amp; Matrices</h2>
+<div id="mathematics-and-statistics" class="section level1">
+<h1><span class="header-section-number">2</span> Mathematics and Statistics</h1>
+<div id="algebra" class="section level2">
+<h2><span class="header-section-number">2.1</span> Algebra</h2>
 <div id="vectors" class="section level3">
-<h3>1.1 Vectors</h3>
+<h3><span class="header-section-number">2.1.1</span> Vectors</h3>
 <div id="creating-a-vector" class="section level4">
-<h4>1.1.1 Creating a vector</h4>
+<h4><span class="header-section-number">2.1.1.1</span> Creating a vector</h4>
 <pre class="r"><code>v1 &lt;- c(1, 2, 3, 4, 5)
 v1
 length(v1)</code></pre>
 <pre><code>## [1] 1 2 3 4 5
 ## [1] 5</code></pre>
-<p><br></p>
-</div>
-<div id="getting-the-components-of-a-vector-slicing" class="section level4">
-<h4>1.1.2 Getting the components of a vector (slicing)</h4>
-<pre class="r"><code>v1[1]
-v1[1:3]</code></pre>
-<pre><code>## [1] 1
-## [1] 1 2 3</code></pre>
-<p><br></p>
 </div>
 <div id="auto-population-of-a-vector" class="section level4">
-<h4>1.1.3 Auto population of a vector</h4>
+<h4><span class="header-section-number">2.1.1.2</span> Auto population of a vector</h4>
 <pre class="r"><code>c(rep(0, times = 5))
 c(rep(c(1, 2), times = 3))
 c(5:9)
@@ -220,10 +283,9 @@ c(seq(from = 1, to = 7, length = 5))</code></pre>
 ## [1] 5 6 7 8 9
 ## [1] 1 3 5 7
 ## [1] 1.0 2.5 4.0 5.5 7.0</code></pre>
-<p><br></p>
 </div>
 <div id="arithmetic-with-vectors" class="section level4">
-<h4>1.1.4 Arithmetic with vectors</h4>
+<h4><span class="header-section-number">2.1.1.3</span> Arithmetic with vectors</h4>
 <pre class="r"><code>a &lt;- 1:5
 b &lt;- 3:7
 a+b
@@ -236,17 +298,16 @@ a^(b-a)</code></pre>
 ## [1]  3  8 15 24 35
 ## [1] 0.3333333 0.5000000 0.6000000 0.6666667 0.7142857
 ## [1]  1  4  9 16 25</code></pre>
-<p>And the scalar</p>
+<p>And the <strong>dot product</strong> or <strong>scalar product</strong>[</p>
 <pre class="r"><code>a%*%b</code></pre>
 <pre><code>##      [,1]
 ## [1,]   85</code></pre>
-<p><br><br></p>
 </div>
 </div>
 <div id="matrices" class="section level3">
-<h3>1.2 Matrices</h3>
+<h3><span class="header-section-number">2.1.2</span> Matrices</h3>
 <div id="creating-a-matrix" class="section level4">
-<h4>1.2.1 Creating a matrix</h4>
+<h4><span class="header-section-number">2.1.2.1</span> Creating a matrix</h4>
 <pre class="r"><code>m1 &lt;- matrix(c(1:6), ncol = 3, byrow = TRUE)
 m1</code></pre>
 <pre><code>##      [,1] [,2] [,3]
@@ -263,10 +324,9 @@ m1</code></pre>
 ## [1,]    1    0    0
 ## [2,]    0    1    0
 ## [3,]    0    0    1</code></pre>
-<p><br></p>
 </div>
 <div id="length-dimensions-and-slicing" class="section level4">
-<h4>1.2.2 Length, Dimensions and Slicing</h4>
+<h4><span class="header-section-number">2.1.2.2</span> Length, Dimensions and Slicing</h4>
 <pre class="r"><code>length(m1)
 dim(m1)</code></pre>
 <pre><code>## [1] 6
@@ -275,10 +335,9 @@ dim(m1)</code></pre>
 m1[,2]</code></pre>
 <pre><code>## [1] 6
 ## [1] 2 5</code></pre>
-<p><br></p>
 </div>
 <div id="arithmetic-with-matrices" class="section level4">
-<h4>1.2.3 Arithmetic with matrices</h4>
+<h4><span class="header-section-number">2.1.2.3</span> Arithmetic with matrices</h4>
 <pre class="r"><code>m2 &lt;- matrix(c(1:6), ncol = 2, byrow = TRUE)
 m1
 m2</code></pre>
@@ -304,10 +363,9 @@ m2</code></pre>
 ## [3,]   29   40   51</code></pre>
 <pre class="r"><code>m1*m2</code></pre>
 <pre><code>## Error in m1 * m2: nicht passende Arrays</code></pre>
-<p><br></p>
 </div>
 <div id="transpose-matrices" class="section level4">
-<h4>1.2.4 Transpose matrices</h4>
+<h4><span class="header-section-number">2.1.2.4</span> Transpose matrices</h4>
 <p>Let <span class="math inline">\({\bf M1}=[a_{ij}]\)</span> then <span class="math inline">\({\bf M1'}=[a_{ji}]\)</span></p>
 <pre class="r"><code>m1</code></pre>
 <pre><code>##      [,1] [,2] [,3]
@@ -328,10 +386,9 @@ m2</code></pre>
 <pre><code>##      [,1] [,2]
 ## [1,]   14   32
 ## [2,]   32   77</code></pre>
-<p><br></p>
 </div>
 <div id="inverse-of-matrix" class="section level4">
-<h4>1.2.5 Inverse of matrix</h4>
+<h4><span class="header-section-number">2.1.2.5</span> Inverse of matrix</h4>
 <p>An <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\({\bf M}\)</span> has an inverse, denoted <span class="math inline">\({\bf M^{-1}}\)</span>, provided that <span class="math inline">\({\bf M}{\bf M^{-1}}={\bf I_{n}}\)</span></p>
 <pre class="r"><code>m3 &lt;- matrix(c(2, 5, 1, 3), nrow = 2, byrow = TRUE)
 m3</code></pre>
@@ -352,7 +409,7 @@ m3</code></pre>
 <p><br></p>
 </div>
 <div id="rank-of-a-matrix" class="section level4">
-<h4>1.2.6 Rank of a matrix</h4>
+<h4><span class="header-section-number">2.1.2.6</span> Rank of a matrix</h4>
 <pre class="r"><code>m4 &lt;- matrix(c(1,2,3,2,4,6,10,20,30), ncol = 3, byrow = FALSE)
 m4</code></pre>
 <pre><code>##      [,1] [,2] [,3]
@@ -364,7 +421,7 @@ m4</code></pre>
 <p>The rank of the matrix is 1, because <span class="math inline">\(Col2 = 2*Col1\)</span> and <span class="math inline">\(Col3 = 10*Col1\)</span>. This attribute can be used to reduce the size of matrices and data. <br></p>
 </div>
 <div id="eigenvalues" class="section level4">
-<h4>1.2.7 Eigenvalues</h4>
+<h4><span class="header-section-number">2.1.2.7</span> Eigenvalues</h4>
 <p>We use the example of a <span class="math inline">\(3 \times 3\)</span> matrix. This could be considered as the variance-covariance matrix of three variables, but the main thing is that the matrix is <strong>square</strong> and <strong>symmetric</strong>, which guarrantees that the eigenvalues <span class="math inline">\(\lambda_{i}\)</span> are real numbers.</p>
 <pre class="r"><code>m5 &lt;- matrix(c(13, -4, 2, -4, 11, -2, 2, -2, 8), ncol = 3, byrow = TRUE)
 m5</code></pre>
@@ -386,10 +443,6 @@ As shown above, this returns a namend list, containing the eigenvalues and eigen
 <center>
 <span class="math inline">\((A- \lambda I_{n})x=0\)</span>
 </center>
-<br> which leads to:
-<center>
-<span class="math inline">\(det(A- \lambda I_{n})=0\)</span>
-</center>
 <p><br></p>
 <pre class="r"><code>m_test1 = m5 - eigen(m5)$values[1] * diag(3)
 m_test1</code></pre>
@@ -397,12 +450,38 @@ m_test1</code></pre>
 ## [1,]   -4   -4    2
 ## [2,]   -4   -6   -2
 ## [3,]    2   -2   -9</code></pre>
+which leads to:
+<center>
+<span class="math inline">\(det(A- \lambda I_{n})=0\)</span>
+</center>
+<p><br></p>
 <pre class="r"><code>round(det(m_test1), digits = 2)</code></pre>
 <pre><code>## [1] 0</code></pre>
-<p>Which should also be true for the second eigenvalue:</p>
+<p>This should also be true for the second eigenvalue:</p>
 <pre class="r"><code>m_test2 = m5 - eigen(m5)$values[2] * diag(3)
 round(det(m_test2), digits = 2)</code></pre>
 <pre><code>## [1] 0</code></pre>
+</div>
+</div>
+<div id="linear-algebra" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Linear Algebra</h3>
+Supose we have the following system of linear equations:
+<center>
+<span class="math inline">\(\begin{alignedat}{7}3x&amp;&amp;\;+\;&amp;&amp;2y&amp;&amp;\;-\;&amp;&amp;z&amp;&amp;\;=\;&amp;&amp;1&amp;\\2x&amp;&amp;\;-\;&amp;&amp;2y&amp;&amp;\;+\;&amp;&amp;4z&amp;&amp;\;=\;&amp;&amp;-2&amp;\\-x&amp;&amp;\;+\;&amp;&amp;{\tfrac {1}{2}}y&amp;&amp;\;-\;&amp;&amp;z&amp;&amp;\;=\;&amp;&amp;0&amp;\end{alignedat}\)</span>
+</center>
+<p>This can be converted into one matrix and one vector:</p>
+<pre class="r"><code>a = matrix(c(3, 2, -1, 2, -2, 4, -1, 0.5, -1), ncol = 3, byrow = TRUE)
+a</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    3  2.0   -1
+## [2,]    2 -2.0    4
+## [3,]   -1  0.5   -1</code></pre>
+<pre class="r"><code>b = c(1, -2, 0)
+b</code></pre>
+<pre><code>## [1]  1 -2  0</code></pre>
+<p>And solved using the <strong>solve()</strong> function:</p>
+<pre class="r"><code>solve(a,b)</code></pre>
+<pre><code>## [1]  1 -2 -2</code></pre>
 </div>
 </div>
 </div>
