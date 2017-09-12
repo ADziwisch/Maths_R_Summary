@@ -278,6 +278,7 @@ ggplot(data, aes(x)) +
 
 + The first derivative $f'(x)$ describes the rate of change / slope of the tangent at $x$.
 + The second derivative $f''(x)$ describes the change in the rate of change / curvature of the function near $x$.
+
 Lets see what the first and second derivative of our quadratic equation $f(x)=3x^{2}+1$ are:
 ```{r}
 D(expression(3*(x**2) + 1), "x")
@@ -303,7 +304,81 @@ data <- data.frame(x_val = x, cos_val = cos, first_val = first_deriv, second_val
 ggplot(data = data, aes(x = x_val)) +
   geom_line(aes(y = cos_val), color = "#fdcc8a") +
   geom_line(aes(y = first_val), color = "#fc8d59") +
-  geom_line(aes(y = second_val), color = "#d7301f")
+  geom_line(aes(y = second_val), color = "#d7301f") +
+  labs(x = "x", y = "y(x)") +
+  theme_classic()
 ```
 
+#### Partial derivatives and the hessian (Hesse-Matrix)
 
+For functions with two or more independent variables there is also more than one first and second derivative. These derivatives are called the partial derivatives. When finding the partial derivative of one variable, all other variables can temporarilly be considered as constant.
+An examplary function may be:
+<center>
+$f(x,y) = 6x^{3}+4y^{2}$
+</center>
+The first partial derivatives are as follows:
+```{r}
+D(expression(6*x^3+4*y^2), "x")
+D(expression(6*x^3+4*y^2), "y")
+```
+
+For higher order partial derivatives there are $n^{r}$ derivatives, with $n$ being the number of independent variables and $r$ the order of the derivatives.
+
+The second derivatives for a function with two independent variables can be summarized by using the hessian:
+
+<br><center>
+$H:=\begin{pmatrix}\left(\frac{\partial^2f}{\partial x\partial x}\right)  &  \left(\frac{\partial^2f}{\partial x\partial y}\right) \\ \left(\frac{\partial^2f}{\partial y\partial x}\right)  &  \left(\frac{\partial^2f}{\partial y\partial y}\right)\end{pmatrix}$
+</center><br>
+If the function is steady at every point $(x,y)$ the following is true $\frac{\partial^2f}{\partial x\partial y} = \frac{\partial^2f}{\partial y\partial x}$. This may also be observed, by using the <code>deriv</code> function again:
+```{r}
+deriv(expression(6*x^3+4*y^2), c("x", "y"), function.arg = TRUE, hessian = TRUE)
+```
+
+### Min and Max of a function
+
+Building on what can be discovered, when evaluating the derivatives of a function the following can be stated. When $f'(x)=0$ then $f(x)$ is a critical point:
+
++ if $f''(x)>0$ then $f(x)$ is a local minimum
++ if $f''(x)<0$ then $f(x)$ is a local maximum
+
+```{r}
+x <- seq(from = pi/2, to = 5*pi/2, by = pi/16)
+cos <- cos(x)
+
+deriv_cos = deriv(expression(cos(x)), "x", function.arg = TRUE, hessian = TRUE)
+
+first_deriv <- as.numeric(attributes(deriv_cos(x))$gradient)
+second_deriv <- as.numeric(attributes(deriv_cos(x))$hessian)
+
+x_point <- integer()
+y_point <- integer()
+
+for(i in x){
+  val = round(as.numeric(attributes(deriv_cos(i))$gradient), 3)
+  if ( val == 0 ) {
+    
+    if (as.numeric(attributes(deriv_cos(i))$hessian) > 0) {
+      
+      print(paste("Minimum at x =", round(i, 3), ", y =", cos(i)))
+      x_point <- c(x_point, i)
+      y_point <- c(y_point, cos(i))
+      
+    } else if (as.numeric(attributes(deriv_cos(i))$hessian) < 0) {
+      
+      print(paste("Maximum at x =", round(i, 3), ", y =", cos(i)))
+      x_point <- c(x_point, i)
+      y_point <- c(y_point, cos(i))
+      
+    }
+  }
+}
+
+data <- data.frame(x_val = x, cos_val = cos, first_val = first_deriv, second_val = second_deriv)
+point_data = data.frame(x = x_point, y = y_point)
+
+ggplot(data = data, aes(x = x_val)) +
+  geom_line(aes(y = cos_val), color = "#fdcc8a") +
+  labs(x = "x", y = "y(x)") +
+  theme_classic() + 
+  geom_point(data = point_data, mapping = aes(x = x, y= y))
+```
